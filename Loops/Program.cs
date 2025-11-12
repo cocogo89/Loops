@@ -92,45 +92,43 @@ namespace Loops
             {
                 Console.WriteLine("Введіть число:");
                 string input = Console.ReadLine();
-                if (!int.TryParse(input, out int number))
-                {
-                    Console.WriteLine("Невірне число.");
-                    return;
-                }
+
+                int number = Convert.ToInt32(input);
 
                 if (number == 0)
                 {
-                    Console.WriteLine("Двійкове представлення: 0");
+                    Console.WriteLine("Двійкова система: 0");
                     return;
                 }
 
-                long temp = number;
-                bool isNegative = temp < 0;
-                if (isNegative) temp = -temp; 
+                bool isNegative = number < 0;
+                if (isNegative) number = -number;
 
-                var sb = new StringBuilder();
-                while (temp > 0)
+                string binary = "";
+                while (number > 0)
                 {
-                    sb.Insert(0, (temp % 2).ToString());
-                    temp /= 2;
+                    binary = (number % 2) + binary;
+                    number /= 2;
                 }
 
-                if (isNegative) sb.Insert(0, '-');
+                if (isNegative) binary = "-" + binary;
 
-                Console.WriteLine("Двійкове представлення: " + sb.ToString());
+                Console.WriteLine("Двійкова система: " + binary);
             }
 
             public static void Task7()
             {
                 Console.Write("Введіть число: ");
-                int limit = int.Parse(Console.ReadLine());
+                string input = Console.ReadLine();
+
+                int number = Convert.ToInt32(input);
 
                 int a = 0;
                 int b = 1;
                 int sum = 0;
                 int count = 0;
 
-                while (a < limit)
+                while (a < number)
                 {
                     Console.Write(a + " ");
                     sum += a;
@@ -147,10 +145,14 @@ namespace Loops
             public static void Task8()
             {
                 Console.Write("Введіть перше число: ");
-                int num1 = int.Parse(Console.ReadLine());
+                string input = Console.ReadLine();
+
+                int num1 = Convert.ToInt32(input);
 
                 Console.Write("Введіть друге число: ");
-                int num2 = int.Parse(Console.ReadLine());
+                input = Console.ReadLine();
+
+                int num2 = Convert.ToInt32(input);
 
                 int a = num1;
                 int b = num2;
