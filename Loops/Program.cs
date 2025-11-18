@@ -138,7 +138,6 @@ namespace Loops
                     b = temp;
                 }
 
-                Console.WriteLine("\n\nРезультати:");
                 Console.WriteLine("Сума чисел: " + sum);
                 Console.WriteLine("Кількість елементів: " + count);
             }
